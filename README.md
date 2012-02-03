@@ -1,5 +1,15 @@
-glDatePicker
-============
+glDatePicker Zepto
+==================
+
+__Note: this a Zepto compatible (requires [data.js](https://github.com/madrobby/zepto/blob/master/src/data.js)) version of the original jQuery component at https://github.com/glad/glDatePicker__
+
+### List of differences
+
+- uses simple show / hide instead of slideUp / slideDown
+- doesn't use "float: left;" internally, so plays nicer if used in the layout flow ("showAlways: true" mode) – not tested in IE (not that Zepto supports IE anyway)
+- does interaction bindings Zepto style (this breaks compatibility with jQuery, might worth doing some detection to prevent this)
+
+--------------------------------------------------------------------------
 
 A simple, customizable, lightweight date picker calendar plugin for jQuery
 
