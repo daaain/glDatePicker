@@ -112,7 +112,7 @@
 				if(!s.showAlways)
 				{
 					// Hide the calendar and remove class from target
-					$("#"+s.calId).slideUp(200);
+					$("#"+s.calId).hide();
 					$(this).removeClass("_gldp");
 				}
 			}
@@ -185,7 +185,7 @@
 
 			// Get the current date to render
 			var theDate = target.data("theDate");
-				theDate = (theDate == -1 || typeof theDate == "undefined") ? startDate : theDate;
+				theDate = (theDate == -1 || typeof theDate == "undefined" || theDate == null) ? startDate : theDate;
 
 			// Calculate the first and last date in month being rendered.
 			// Also calculate the weekday to start rendering on
@@ -303,7 +303,7 @@
 
 			// Show calendar
 			var calendar = $("#"+calId);
-			calendar.html(html).slideDown(200);
+			calendar.html(html).show();
 
 			// Add a class to make it easier to find when hiding
 			target.addClass("_gldp");
@@ -327,13 +327,13 @@
 			});
 
 			// Highlight day cell on hover
-			$("tr.days td:not(.noday, .selected)", calendar)
-				.mouseenter(function(e)
+			$("tr.days td").not(".noday, .selected")
+				.bind("mouseover", function(e)
 				{
 					var css = "gldp-"+settings.cssName+"-"+$(this).children("div").attr("class");
 					$(this).removeClass(css).addClass(css+"-hover");
 				})
-				.mouseleave(function(e)
+				.bind("mouseout", function(e)
 				{
 					if(!$(this).hasClass("selected"))
 					{
@@ -341,7 +341,7 @@
 						$(this).removeClass(css+"-hover").addClass(css);
 					}
 				})
-				.click(function(e)
+				.bind("click", function(e)
 				{
 					e.stopPropagation();
 					var day = $(this).children("div").html();
@@ -374,4 +374,4 @@
 		else if(typeof method === "object" || !method) { return methods.init.apply(this, arguments); }
 		else { $.error("Method "+ method + " does not exist on jQuery.glDatePicker"); }
 	};
-})(jQuery);
+})(window.jQuery || window.Zepto);
