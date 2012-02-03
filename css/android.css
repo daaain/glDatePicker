@@ -9,7 +9,7 @@
 /* Calendar container div */
 .gldp-android
 {
-	float:left;
+	display:inline-block;
 	font-family:"trebuchet ms" !important;
 	background-color:#222 !important;
 	font-size:0.8em !important;
