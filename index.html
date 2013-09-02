@@ -161,6 +161,19 @@
 						}
 					});</pre>
 				<!-- END Example #6 -->
+				
+				<!-- BEGIN Example #7 -->
+				<p>
+					<b><span class="example">Example #7</span>: Calendar always shown</b>
+				</p>
+				<input type="text" id="date7" class="gldp" />
+				<br/><br/>
+				<pre class="brush:js">
+					$("#date7").glDatePicker(
+					{
+						showAlways: true
+					});</pre>
+				<!-- END Example #7 -->
 			</div>
 			<!-- END examples -->
 
@@ -356,6 +369,12 @@
 						newDate.getDate()
 					);
 				}
+			});
+			
+			// Always shown
+			$("#date7").glDatePicker(
+			{
+				showAlways: true
 			});
 		});
 	</script>

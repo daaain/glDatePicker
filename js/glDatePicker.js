@@ -360,7 +360,16 @@
 
 					// Save selected
 					settings.selectedDate = newDate;
-
+					
+					// Remove selected from previous day and apply on current one if showAlways is on
+					if(settings.showAlways)
+					{
+					  $("#"+settings.calId).find("td.gldp-days").removeClass("selected");
+					  var css = "gldp-"+settings.cssName+"-"+$(this).children("div").attr("class");
+						$(this).removeClass(css+"-hover").addClass(css+"-selected");
+					  $(this).addClass("selected");
+					}
+					
 					// Hide calendar
 					methods.hide.apply(target);
 				});
